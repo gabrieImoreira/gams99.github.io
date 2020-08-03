@@ -69,8 +69,8 @@ public class view extends JFrame {
 		btnNewButton.setBounds(103, 44, 72, 21);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				generate.realiza(txtDirectory.getText(),txtSN.getText());
-				JOptionPane.showMessageDialog(null, "Conversão realizada com sucesso!");
+				generate.realiza(txtDirectory.getText(),txtSN.getText()); //select Directory and the SN
+				JOptionPane.showMessageDialog(null, "Conversão realizada com sucesso!"); 
 			}
 		});
 		contentPane.add(btnNewButton);
@@ -90,15 +90,15 @@ public class view extends JFrame {
 		JButton directory = new JButton("Abrir");
 		directory.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser fileChooser = new JFileChooser();
-				fileChooser.setDialogTitle("Selecionar diretório");
-				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				int retorno = fileChooser.showOpenDialog(directory);
+				JFileChooser fileChooser = new JFileChooser(); 
+				fileChooser.setDialogTitle("Selecionar diretório"); //message in window
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY); // only accept directory 
+				int retorno = fileChooser.showOpenDialog(directory); // check file
 				
-				if(retorno == JFileChooser.APPROVE_OPTION) {
+				if(retorno == JFileChooser.APPROVE_OPTION) { // if is OK in file, set message in Field Text
 					
-					File file = fileChooser.getSelectedFile();
-					txtDirectory.setText(file.getPath());
+					File file = fileChooser.getSelectedFile(); 
+					txtDirectory.setText(file.getPath()); //set in the field
 					
 				}
 				
